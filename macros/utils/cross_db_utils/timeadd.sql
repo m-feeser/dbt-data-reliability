@@ -39,5 +39,5 @@
 {% endmacro %}
 
 {% macro duckdb__edr_timeadd(date_part, number, timestamp_expression) %}
-    {{ elementary.edr_cast_as_timestamp(timestamp_expression) }} + {{ elementary.edr_cast_as_int(number) }} * INTERVAL '1 {{ date_part }}'
+    {{ dbt.dateadd(date_part, number, timestamp_expression) }}
 {% endmacro %}
